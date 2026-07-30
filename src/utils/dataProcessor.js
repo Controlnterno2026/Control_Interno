@@ -1,5 +1,15 @@
 import * as XLSX from 'xlsx';
 
+/**
+ * Combina valores existentes evitando sobrescribir con valores nulos o vacíos.
+ */
+const mergeValue = (current, next) => {
+  if (current !== undefined && current !== null && current !== '') {
+    return current;
+  }
+  return next;
+};
+
 const VALID_DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
 
 const monthsEs = [
