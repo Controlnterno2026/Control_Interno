@@ -34,7 +34,8 @@ export default function App() {
     async function loadInitialData() {
       setIsLoading(true);
       try {
-        const response = await fetch('/data.json');
+        const dataUrl = `${import.meta.env.BASE_URL}data.json`;
+        const response = await fetch(dataUrl);
         if (!response.ok) {
           throw new Error(`Status HTTP: ${response.status}`);
         }
